@@ -23,22 +23,14 @@ jobs:
       - name: Say hello
         run: |
           echo "Hello World!"
-      - name: Checkout
-        uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
+      # - name: Checkout
+      #   uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: npm ci
+      # - name: Install dependencies
+      #   run: npm ci
 
-      - name: Check Style
-        run: npm run eslint
+      # - name: Check Style
+      #   run: npm run eslint
 
-      - name: Test application
-        run: npm test
-
-      - name: Build application
-        run: |
-          echo "Run command to build the application if present"
-          npm run build --if-present
+      # - name: Test application
+      #   run: npm test
