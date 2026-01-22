@@ -10,8 +10,8 @@ on:
       - completed
 
 jobs:
-  if: "${{ github.event.workflow_run.conclusion == 'success' }}"
   Deploy-Production:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
