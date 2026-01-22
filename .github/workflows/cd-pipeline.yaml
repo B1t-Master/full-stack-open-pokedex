@@ -11,7 +11,7 @@ on:
 
 jobs:
   Deploy-Production:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{github.event_name == 'push'}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
