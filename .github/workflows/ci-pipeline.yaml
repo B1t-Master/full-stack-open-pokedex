@@ -13,7 +13,7 @@ jobs:
     env:
       PORT: 5001
     steps:
-      - name: Ls
+      - name: list files
         run: |
           ls -l
       - name: date
