@@ -1,7 +1,7 @@
 # Full Stack open CI/CD
 
 This repository is used for the CI/CD module of the Full stack open course
-This is a pretty big change in the pipeline.
+This is a pretty big change in the pipeline.This better do it
 Fork the repository to complete course exercises
 
 ## Commands
