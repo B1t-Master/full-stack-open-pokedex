@@ -1,7 +1,6 @@
-webpack.config.js
 node_modules/
 dist/
 .eslintrc.js
 app.js
-playwright.config.js
 example.spec.js
+*config.js

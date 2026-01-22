@@ -1,4 +1,4 @@
-name: CI Pipeline to staging/production environment
+name: CI/CD Pipeline to staging/production environment
 on:
   push:
     branches:
@@ -23,14 +23,47 @@ jobs:
       - name: Say hello
         run: |
           echo "Hello World!"
-      # - name: Checkout
-      #   uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      # - name: Install dependencies
-      #   run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-      # - name: Check Style
-      #   run: npm run eslint
+      - name: Check Style
+        run: npm run eslint
 
-      # - name: Test application
-      #   run: npm test
+      - name: Unit test
+        run: npm test
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check Style
+        run: npm run eslint
+
+      - uses: actions/checkout@v4
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npx playwright test
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
+
+      - name: Build application
+        run: |
+          echo "Run command to build the application if present"
+          npm run build --if-present
