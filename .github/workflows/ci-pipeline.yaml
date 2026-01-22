@@ -1,7 +1,7 @@
 name: CI Pipeline to staging/production environment
 on:
-  push:
-    branches: -main
+  [push]:
+    branches: -"*"
   # pull_request:
   #   branches:
   #     - staging
