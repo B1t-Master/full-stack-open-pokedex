@@ -13,6 +13,12 @@ jobs:
     env:
       PORT: 5001
     steps:
+      - name: Ls
+        run: |
+          ls -l
+      - name: date
+        run: |
+          date
       - name: Say hello
         run: |
           echo "Hello World!"
